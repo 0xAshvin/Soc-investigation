@@ -4,7 +4,7 @@
 
 ## Quick Access
 
-[![PDF](https://img.shields.io/badge/PDF-TinyTurla_Backdoor_Malware_Analysis-red)](./Soc-investigation/letsdefend/TinyTurla%20Backdoor%20-%20Analysis/TinyTurla%20Backdoor%20Malware%20Analysis.pdf)
+[![PDF](https://img.shields.io/badge/PDF-TinyTurla_Backdoor_Malware_Analysis-red)](./letsdefend/TinyTurla%20Backdoor%20-%20Analysis/TinyTurla%20Backdoor%20Malware%20Analysis.pdf)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ashvin_Aacharya-blue)](https://www.linkedin.com/in/ashvin-aacharya-a08553308)
 
