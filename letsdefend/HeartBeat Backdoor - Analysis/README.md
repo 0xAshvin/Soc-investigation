@@ -1,14 +1,14 @@
 # HeartBeat Backdoor — Malware Analysis (README.md)
 
-```markdown
+markdown
 # HeartBeat Backdoor - Malware Analysis
 
 > Malware Analysis Challenge from Let'sDefend
 
 [![PDF](https://img.shields.io/badge/PDF-View_Report-red)](./HeartBeat_Backdoor.pdf)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/ashvin-aacharya-a08553308)
-[![X](https://img.shields.io/badge/X-Follow-black)](https://x.com/0xAshvin)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Ashvin_Aacharya-blue)](https://www.linkedin.com/in/ashvin-aacharya-a08553308)
 
+[![X](https://img.shields.io/badge/X-0xAshvin-black)](https://x.com/0xAshvin)
 ---
 
 ## Overview
@@ -96,7 +96,7 @@ The objective of this investigation was to identify the malware's communication 
 Special thanks to **Let'sDefend** for providing the challenge environment and hands-on malware analysis experience.
 
 ---
-```
+
 
 
 
